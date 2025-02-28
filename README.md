@@ -1,5 +1,5 @@
 # web-engineering
-**组长** + 周铭颢 zhouminghao1
+**组长** 周铭颢 zhouminghao1
 
 + 吴东灿 Finn-cc
 + 钟一锴
