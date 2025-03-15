@@ -6,17 +6,80 @@
 
 ### 1. 核心功能规划
 **基础目标**  
-构建满足中小型电商业务需求的平台，支持商品展示、在线交易、用户管理等基础功能，适用于年交易额500万以下的业务场景[1,7](@ref)。  
+构建满足中小型电商业务需求的平台，支持商品展示、在线交易、用户管理等基础功能，适用于年交易额500万以下的业务场景]。  
 **功能模块**：  
 
 - **用户端**：商品浏览（分类/搜索）、购物车管理、订单支付、个人中心  
+
 - **商家端**：商品上下架、订单处理、简易销售统计  
+
 - **管理后台**：用户管理、商品审核、基础数据报表  
+
+  
+
+  @startuml
+  left to right direction
+  skinparam packageStyle rectangle
+
+  actor 消费者 as customer
+  actor 商家 as merchant
+  actor 管理员 as admin
+
+  rectangle "电商平台" {
+    rectangle "消费者端" {
+      customer -- (商品浏览)
+      customer -- (管理购物车)
+      customer -- (订单支付)
+      customer -- (用户注册/登录)
+      customer -- (地址管理)
+      customer -- (订单查询)
+      
+      (商品浏览) .> (按分类搜索) : include
+      (商品浏览) .> (按关键词搜索) : include
+      (商品浏览) .> (价格排序) : include
+      
+      (管理购物车) .> (添加商品) : include
+      (管理购物车) .> (删除商品) : include
+      (管理购物车) .> (库存校验) : extend
+    }
+
+    rectangle "商家端" {
+      merchant -- (商品上下架)
+      merchant -- (SKU配置)
+      merchant -- (订单导出)
+      merchant -- (标记发货)
+    }
+
+    rectangle "管理后台" {
+      admin -- (商品审核)
+      admin -- (用户管理)
+      admin -- (数据看板)
+      admin -- (权限分级)
+      
+      (数据看板) .> (日订单统计) : include
+      (数据看板) .> (销售额统计) : include
+    }
+  }
+
+  note top of 订单支付
+    支持微信/支付宝支付
+  end note
+
+  note right of 库存校验
+    实时查询数据库库存
+  end note
+
+  note left of 权限分级
+    管理员与普通员工账号
+  end note
+  @enduml
+
+  
 
 ### 2. 技术选型建议
 #### **前端技术**  
 - **框架**：Vue.js 2.x（易上手） + Element UI（后台管理）  
-- **移动适配**：媒体查询实现基础响应式布局[9](@ref)  
+- **移动适配**：媒体查询实现基础响应式布局
 
 #### **后端技术**  
 - **核心框架**：Spring Boot 2.x（快速开发）
