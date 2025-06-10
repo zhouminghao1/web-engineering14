@@ -376,7 +376,7 @@ const doSubmit = ()=> {
         } else if (opType.value == 1) {
             url = api.login;
         } else if (opType.value == 2) {
-            URL = api.resetPwd;
+            url = api.resetPwd;
         }
         let result = await proxy.Request({
             url: url,
