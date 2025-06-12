@@ -81,8 +81,6 @@ public class AccountController extends ABaseController {
 
     /**
      * @Description: 发送邮箱验证码
-     * @auther: laoluo
-     * @date: 20:39 2023/4/1
      * @param: [session, email, checkCode, type]
      * @return: com.easypan.entity.vo.ResponseVO
      */
@@ -105,8 +103,6 @@ public class AccountController extends ABaseController {
 
     /**
      * @Description: 注册
-     * @auther: laoluo
-     * @date: 20:39 2023/4/1
      * @param: [session, email, nickName, password, checkCode, emailCode]
      * @return: com.easypan.entity.vo.ResponseVO
      */
@@ -131,8 +127,6 @@ public class AccountController extends ABaseController {
 
     /**
      * @Description: 登录
-     * @auther: laoluo
-     * @date: 20:39 2023/4/1
      * @param: [session, request, email, password, checkCode]
      * @return: com.easypan.entity.vo.ResponseVO
      */
